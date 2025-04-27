@@ -4,147 +4,140 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Author Bio Page</title>
+	<title>Author Bio Page - Sebby Webbers</title>
 
-	<!-- Spectre.css for styling -->
+	<!-- Spectre.css -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/spectre.css/dist/spectre.min.css">
-
-	<!-- Alpine.js for interactivity -->
+	<!-- Alpine.js -->
 	<script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
-
-	<!-- Font Awesome for icons -->
+	<!-- FontAwesome -->
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
 	<style>
-		/* Custom styles */
-		.bg-cover {
-			background-size: cover;
-			background-position: center;
-			background-attachment: fixed;
+		body {
+			font-family: 'Poppins', sans-serif;
+			margin: 0;
+			background-color: #f4f4f4;
 		}
 
 		.content-container {
 			min-height: 100vh;
 			display: flex;
 			flex-direction: column;
+			background-image: url('./images/background.jpg');
+			background-size: cover;
+			background-position: center;
+			background-attachment: fixed;
 		}
 
-		/* Bio Section styles */
+		/* Bio Section */
 		.bio-section {
-			height: 400px;
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			justify-content: center;
-			background-color: rgba(0, 0, 0, 0.6);
-			/* Darker background */
-			color: white;
+			background: rgba(0, 0, 0, 0.6);
 			text-align: center;
-			padding: 20px;
+			color: white;
+			padding: 60px 20px;
 		}
 
 		.bio-image {
 			width: 120px;
 			height: 120px;
 			border-radius: 50%;
-			margin-bottom: 5px;
-			margin-top: 40px;
+			margin-bottom: 20px;
 			border: 4px solid #4c6ef5;
-			box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+			box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
 		}
 
 		.bio-title {
-			font-size: 2rem;
-			font-weight: bold;
-			margin-bottom: 0px;
+			font-size: 2.5rem;
+			font-weight: 600;
+			margin-bottom: 15px;
 		}
 
 		.bio-section p {
-			font-size: 1rem;
-			/* Reduced font size */
-			line-height: 1.5;
+			font-size: 1.1rem;
 			max-width: 600px;
 			margin: 0 auto;
+			line-height: 1.6;
+		}
+
+		.social-icons {
+			margin-top: 20px;
+		}
+
+		.social-icons a {
+			color: white;
+			margin: 0 10px;
+			font-size: 1.8rem;
+			transition: color 0.3s;
+		}
+
+		.social-icons a:hover {
+			color: #4c6ef5;
 		}
 
 		/* Books Section */
 		.book-section {
-			margin-top: 50px;
-			padding: 40px 0 0 0;
-			color: #fff;
-			background-color: rgba(0, 0, 0, 0.8);
-			height: 300px
-		}
-
-		.section-header {
+			background: white;
+			padding: 60px 20px;
 			text-align: center;
 		}
 
 		.section-header h2 {
-			margin-bottom: 10px;
+			font-size: 2rem;
+			margin-bottom: 30px;
+			color: #333;
 		}
 
-		.section ul {
-			padding-left: 0;
+		.book-list {
 			list-style: none;
+			padding: 0;
+			margin: 0 auto;
+			max-width: 800px;
 		}
 
-		.section ul li {
-			margin: 15px 0;
-			padding: 15px;
-			border: 1px solid #ddd;
-			border-radius: 8px;
-			background-color: #f9f9f9;
-			box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-		}
-
-		.section ul li:hover {
-			background-color: #e0e0e0;
-			cursor: pointer;
-		}
-
-		/* Dog Picture Section */
-		.dog-section {
-			display: flex;
-			justify-content: space-around;
-			margin-top: 30px;
-			flex-wrap: wrap;
-			background-color: rgba(0, 0, 0, 0.7);
-			/* Ensures responsiveness */
-		}
-
-		.dog-section .dog-img {
-			width: 50%;
-			height: 5%;
-			border-radius: 10px;
-			box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+		.book-list li {
+			background: #f9f9f9;
 			margin-bottom: 20px;
+			padding: 20px;
+			border-radius: 12px;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+			transition: background 0.3s;
 		}
 
-		/* Ensures images scale down on smaller screens */
-		@media (max-width: 768px) {
-			.dog-section {
-				justify-content: center;
-			}
-
-			.dog-section .dog-img {
-				width: 90%;
-			}
+		.book-list li:hover {
+			background: #ececec;
 		}
 
-		/* Social Section */
-		.social-section {
+		/* Dog Section */
+		.dog-section {
+			background: rgba(0, 0, 0, 0.7);
+			padding: 60px 20px;
 			text-align: center;
+		}
+
+		.dog-img {
+			width: 300px;
+			max-width: 90%;
+			border-radius: 15px;
+			margin-bottom: 20px;
+			box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+		}
+
+		/* Footer Social */
+		.social-section {
 			background-color: #333;
 			padding: 20px 0;
 			color: white;
+			text-align: center;
 		}
 
 		.social-section a {
 			color: white;
-			font-size: 30px;
 			margin: 0 15px;
-			text-decoration: none;
+			font-size: 1.5rem;
+			transition: color 0.3s;
 		}
 
 		.social-section a:hover {
@@ -155,55 +148,47 @@
 
 <body>
 
-	<!-- Main content container with background image -->
-	<div class="content-container bg-cover" style="background-image: url('./images/background.jpg')" x-data="{}">
+	<div class="content-container" x-data="{}">
 
-		<!-- Author Bio Section (Top) -->
+		<!-- Bio -->
 		<div class="bio-section">
 			<img src="./images/sebby.jpg" alt="Sebby Webbers" class="bio-image">
 			<div class="bio-title">Sebby Webbers</div>
-			<p>
-				Meet Sebby Webbers – a passionate storyteller who takes you on thrilling adventures. Every
+			<p>Meet Sebby Webbers – a passionate storyteller who takes you on thrilling adventures. Every
 				book is a new world full of wonder, drama, and unforgettable characters. Ready to get lost
 				in a page-turner? Sebby’s stories await!
 			</p>
 
-			<div class="flex space-x-6 justify-center mt-4">
-				<a href="https://twitter.com/johndoe" target="_blank"
-					class="text-2xl text-blue-500 hover:text-blue-700">
-					<i class="fab fa-twitter"></i> <!-- Twitter Icon -->
-				</a>
-				<a href="https://instagram.com/johndoe" target="_blank"
-					class="text-2xl text-blue-700 hover:text-blue-800">
-					<i class="fab fa-instagram"></i> <!-- Instagram Icon -->
-				</a>
+			<div class="social-icons">
+				<a href="https://twitter.com/johndoe" target="_blank"><i class="fab fa-twitter"></i></a>
+				<a href="https://instagram.com/johndoe" target="_blank"><i class="fab fa-instagram"></i></a>
 			</div>
 		</div>
 
-		<!-- Books Section -->
+		<!-- Books -->
 		<div class="book-section">
 			<div class="section-header">
-				<h2 class="text-3xl font-semibold">Books by Sebby</h2>
+				<h2>Books by Sebby</h2>
 			</div>
-			<ul>
+			<ul class="book-list">
 				<li>
-					<strong class="text-xl">Hellhound Hunt</strong> – An action-packed adventure filled with mystery,
+					<strong>Hellhound Hunt</strong> – An action-packed adventure filled with mystery,
 					suspense, and otherworldly creatures. Join the hunt and unravel the secrets of the underworld.
 				</li>
 				<li>
-					<strong class="text-xl">An Anthology (Not Yet Named)</strong> – A collection of short stories that
-					take you on journeys through different realms. Each story is a unique tale, yet all share a common
-					thread of deep emotional connections and unexpected twists.
+					<strong>An Anthology (Not Yet Named)</strong> – A collection of short stories that
+					take you on journeys through different realms, each with deep emotional connections and unexpected
+					twists.
 				</li>
 			</ul>
 		</div>
 
-		<!-- Dog Pictures Section -->
+		<!-- Dog -->
 		<div class="dog-section">
 			<img src="./images/dog1.jpg" alt="Muppet" class="dog-img">
 		</div>
 
-		<!-- Social Section at the Bottom -->
+		<!-- Footer -->
 		<div class="social-section">
 			<a href="https://twitter.com/johndoe" target="_blank"><i class="fab fa-twitter"></i></a>
 			<a href="https://instagram.com/johndoe" target="_blank"><i class="fab fa-instagram"></i></a>
